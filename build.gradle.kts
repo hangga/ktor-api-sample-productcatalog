@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.plugin.serialization)
 }
 
-group = "io.demo"
+group = "io.demo.productcatalog"
 version = "0.0.1"
 
 application {

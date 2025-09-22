@@ -1,4 +1,4 @@
-package io.demo
+package io.demo.productcatalog
 
 import io.ktor.client.request.*
 import io.ktor.http.*
