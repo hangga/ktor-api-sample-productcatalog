@@ -3,11 +3,10 @@ package io.demo.productcatalog.route
 import io.demo.productcatalog.dto.ProductCreateRequest
 import io.demo.productcatalog.dto.ProductUpdateRequest
 import io.demo.productcatalog.service.ProductService
-import io.ktor.server.application.*
+import io.ktor.http.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.http.*
 
 class ProductRoutes(private val service: ProductService) {
     fun register(parent: Route) = parent.apply {
@@ -35,8 +34,11 @@ class ProductRoutes(private val service: ProductService) {
                 val created = service.createProduct(req)
                 call.respond(HttpStatusCode.Created, created)
             } catch (e: IllegalArgumentException) {
-                call.respond(HttpStatusCode.BadRequest, mapOf("error" to
-                  (e.message ?: "invalid")))
+                call.respond(
+                    HttpStatusCode.BadRequest, mapOf(
+                        "error" to (e.message ?: "invalid")
+                    )
+                )
             }
         }
 
@@ -63,8 +65,11 @@ class ProductRoutes(private val service: ProductService) {
                 return@delete
             }
             val removed = service.deleteProduct(id)
-            if (removed) call.respond(HttpStatusCode.OK, mapOf("deleted"
-              to true))
+            if (removed) call.respond(
+                HttpStatusCode.OK, mapOf(
+                    "deleted" to true
+                )
+            )
             else call.respond(HttpStatusCode.NotFound, "Product not found")
         }
     }

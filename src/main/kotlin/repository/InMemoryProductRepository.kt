@@ -14,6 +14,8 @@ class InMemoryProductRepository : ProductRepository {
         // seed example data
         data.add(Product(idGen.incrementAndGet(), "Laptop", 1200.0, 10))
         data.add(Product(idGen.incrementAndGet(), "Mouse", 25.0, 50))
+        data.add(Product(idGen.incrementAndGet(), "Keyboard", 105.0, 20))
+        data.add(Product(idGen.incrementAndGet(), "Monitor", 15.0, 25))
     }
 
     override suspend fun list(): List<Product> = mutex.withLock {
