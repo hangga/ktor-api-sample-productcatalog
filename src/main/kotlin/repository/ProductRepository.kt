@@ -18,6 +18,7 @@ object ProductRepository {
         products.add(product)
         return product
     }
+
     fun update(id: String, product: Product): Product? {
         val index = products.indexOfFirst { it.id == id }
         return if (index != -1) {
@@ -26,5 +27,6 @@ object ProductRepository {
             updated
         } else null
     }
+
     fun delete(id: String): Boolean = products.removeIf { it.id == id }
 }
