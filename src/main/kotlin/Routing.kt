@@ -18,6 +18,10 @@ fun Application.configureRouting() {
             )
         }
 
+        get("/ping") {
+            call.respond(mapOf("message" to "pong"))
+        }
+
         route("/health") {
             get {
                 call.respond(mapOf("status" to "ok"))
