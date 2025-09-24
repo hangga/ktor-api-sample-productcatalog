@@ -1,7 +1,7 @@
 package io.demo.productcatalog.model
 
 import kotlinx.serialization.Serializable
-import java.util.UUID
+import java.util.*
 
 @Serializable
 data class Product(
